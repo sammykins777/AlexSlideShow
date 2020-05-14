@@ -211,14 +211,24 @@
         }
 
         function maxWindow() {
-            window.moveTo(0, 0);
-            if (document.all) {
-                top.window.resizeTo(screen.availWidth, screen.availHeight)
-            } else if (document.layers || document.getElementById) {
-                if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
-                    top.window.outerHeight = screen.availHeight;
-                    top.window.outerWidth = screen.availWidth
-                }
+            // window.moveTo(0, 0);
+            // if (document.all) {
+            //     top.window.resizeTo(screen.availWidth, screen.availHeight)
+            // } else if (document.layers || document.getElementById) {
+            //     if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+            //         top.window.outerHeight = screen.availHeight;
+            //         top.window.outerWidth = screen.availWidth
+            //     }
+            var html = document.querySelector('html');
+            console.log(html)
+            if (html.requestFullscreen) {
+                html.requestFullscreen();
+            } else if (html.mozRequestFullScreen) { /* Firefox */
+                html.mozRequestFullScreen();
+            } else if (html.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                html.webkitRequestFullscreen();
+            } else if (html.msRequestFullscreen) { /* IE/Edge */
+                html.msRequestFullscreen();
             }
         }
 
