@@ -218,7 +218,8 @@
             //     if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
             //         top.window.outerHeight = screen.availHeight;
             //         top.window.outerWidth = screen.availWidth
-            //     }
+            //     } 
+            // the above code didn't work, the below code did at least on a modern browser!""
             var html = document.querySelector('html');
             console.log(html)
             if (html.requestFullscreen) {
